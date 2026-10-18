@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Play Battleship against the computer in your browser." />
+    <title>Battleship</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1 class="title">Battleship</h1>
+      <button type="button" id="new-game" class="btn btn-primary">New Game</button>
+    </header>
+
+    <main class="container">
+      <section class="status" aria-live="polite">
+        <p id="turn-indicator" class="turn-indicator" data-turn="player">Your turn</p>
+        <p id="message" class="message">Click a cell on the enemy grid to fire.</p>
+      </section>
+
+      <div id="winner-banner" class="winner-banner" role="alert" hidden>
+        <p id="winner-text" class="winner-text"></p>
+        <button type="button" id="play-again" class="btn btn-primary">Play Again</button>
+      </div>
+
+      <div class="boards">
+        <section class="board-panel board-panel--player" aria-labelledby="player-board-title">
+          <h2 id="player-board-title" class="board-title">Your Fleet</h2>
+          <div id="player-board" class="board" role="grid" aria-label="Your board"></div>
+          <ul id="player-fleet" class="fleet" aria-label="Your ships"></ul>
+        </section>
+
+        <section class="board-panel board-panel--enemy" aria-labelledby="enemy-board-title">
+          <h2 id="enemy-board-title" class="board-title">Enemy Waters</h2>
+          <div id="enemy-board" class="board board--enemy" role="grid" aria-label="Enemy board"></div>
+          <ul id="enemy-fleet" class="fleet" aria-label="Enemy ships"></ul>
+        </section>
+      </div>
+
+      <section class="legend" aria-label="Legend">
+        <span class="legend-item"><span class="swatch swatch--ship"></span>Ship</span>
+        <span class="legend-item"><span class="swatch swatch--hit"></span>Hit</span>
+        <span class="legend-item"><span class="swatch swatch--miss"></span>Miss</span>
+        <span class="legend-item"><span class="swatch swatch--sunk"></span>Sunk</span>
+      </section>
+    </main>
+
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+  </body>
+</html>

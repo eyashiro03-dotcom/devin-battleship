@@ -1,0 +1,11 @@
+{
+  "name": "devin-battleship",
+  "version": "1.0.0",
+  "description": "Vanilla HTML/CSS/JS Battleship game against the computer.",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "start": "python3 -m http.server 8000"
+  },
+  "license": "MIT"
+}
