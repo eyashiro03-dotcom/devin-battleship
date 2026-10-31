@@ -55,6 +55,11 @@ They cover:
 - **Victory detection**: win only when every ship is sunk, player and computer wins, no moves after game over,
   new games start fresh.
 
+## Bug reports
+
+- [BUG_REPORT.md](BUG_REPORT.md): full test and debug audit (confirmed bugs, fixes, verification, potential risks).
+- [BUGS.md](BUGS.md): bugs found and fixed while the game was first built.
+
 ## Project structure
 
 ```

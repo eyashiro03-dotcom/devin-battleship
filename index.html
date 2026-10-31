@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Play Battleship against the computer in your browser." />
     <title>Battleship</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%9A%A2%3C/text%3E%3C/svg%3E" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
@@ -27,13 +28,13 @@
       <div class="boards">
         <section class="board-panel board-panel--player" aria-labelledby="player-board-title">
           <h2 id="player-board-title" class="board-title">Your Fleet</h2>
-          <div id="player-board" class="board" role="grid" aria-label="Your board"></div>
+          <div id="player-board" class="board" role="group" aria-label="Your board"></div>
           <ul id="player-fleet" class="fleet" aria-label="Your ships"></ul>
         </section>
 
         <section class="board-panel board-panel--enemy" aria-labelledby="enemy-board-title">
           <h2 id="enemy-board-title" class="board-title">Enemy Waters</h2>
-          <div id="enemy-board" class="board board--enemy" role="grid" aria-label="Enemy board"></div>
+          <div id="enemy-board" class="board board--enemy" role="group" aria-label="Enemy board"></div>
           <ul id="enemy-fleet" class="fleet" aria-label="Enemy ships"></ul>
         </section>
       </div>

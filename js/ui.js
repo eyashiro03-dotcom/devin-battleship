@@ -41,8 +41,8 @@
         cell.className = 'cell';
         cell.dataset.row = r;
         cell.dataset.col = c;
-        cell.setAttribute('role', 'gridcell');
         if (interactive) cell.type = 'button';
+        else cell.setAttribute('role', 'img');
         container.appendChild(cell);
         rowCells.push(cell);
       }
@@ -88,7 +88,8 @@
           lastShot !== null && lastShot[0] === r && lastShot[1] === c
         );
         cell.setAttribute('aria-label', `${coord(r, c)}: ${describeCell(board, r, c, revealShips)}`);
-        if (interactive) cell.disabled = !canFire || shot !== null;
+        // aria-disabled (not disabled) keeps keyboard focus on the cell after firing.
+        if (interactive) cell.setAttribute('aria-disabled', String(!canFire || shot !== null));
       }
     }
   }
@@ -101,6 +102,12 @@
       if (B.isSunk(ship)) li.classList.add('is-sunk');
       const name = document.createElement('span');
       name.textContent = ship.name;
+      if (B.isSunk(ship)) {
+        const status = document.createElement('span');
+        status.className = 'visually-hidden';
+        status.textContent = ' (sunk)';
+        name.appendChild(status);
+      }
       const pips = document.createElement('span');
       pips.className = 'pips';
       pips.setAttribute('aria-hidden', 'true');
@@ -173,7 +180,7 @@
 
   function onEnemyBoardClick(event) {
     const cell = event.target.closest('button.cell');
-    if (!cell || !game) return;
+    if (!cell || !game || game.turn !== 'player') return;
     const row = Number(cell.dataset.row);
     const col = Number(cell.dataset.col);
     const outcome = B.playerAttack(game, row, col);
